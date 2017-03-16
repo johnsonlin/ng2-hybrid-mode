@@ -26,5 +26,5 @@ export const Ng1AppModule = angular.module(MODULE_NAME, [
   Ng1Components.name
 ]);
 
-Ng1Components.directive('app', app)
+Ng1AppModule.directive('app', app)
   .controller('AppCtrl', AppCtrl);
