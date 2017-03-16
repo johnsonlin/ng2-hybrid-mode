@@ -11,7 +11,7 @@ import { GithubReposService } from './github-repos.service';
   ]
 })
 export class GithubReposComponent implements OnInit {
-  private repoNames: string[];
+  repoNames: string[];
 
   constructor(private service: GithubReposService) { }
 

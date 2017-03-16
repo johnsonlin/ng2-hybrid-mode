@@ -13,7 +13,6 @@ GithubUsersComponent.directive('githubUsers', [function() {
       scope: {},
       controller: ['GithubUsersService', function(GithubUsersService) {
         GithubUsersService.getUsers().then((users) => {
-          console.log(users);
           this.users = users.map(user => user.login);
         });
       }],

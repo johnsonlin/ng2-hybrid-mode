@@ -18,6 +18,9 @@ import { GithubReposComponent } from './components/github-repos/github-repos.com
     HttpModule,
     UpgradeModule
   ],
+  entryComponents: [
+    GithubReposComponent
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

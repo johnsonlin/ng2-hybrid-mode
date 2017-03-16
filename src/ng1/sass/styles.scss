@@ -1,0 +1,12 @@
+.ng1-container {
+  background: url('https://angularjs.org/img/AngularJS-large.png') top right no-repeat;
+  border: 3px dotted #1e88e5;
+
+  .github {
+    display: flex;
+
+    > div {
+      width: 50%;
+    }
+  }
+}

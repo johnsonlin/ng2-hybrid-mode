@@ -2,6 +2,7 @@ import * as angular from 'angular';
 
 (<any>window).angular = angular;
 
+import { GithubReposModule } from './components/github-respos';
 import { Ng1Components } from './components';
 
 let app = () => {
@@ -23,7 +24,8 @@ class AppCtrl {
 export const MODULE_NAME = 'app';
 
 export const Ng1AppModule = angular.module(MODULE_NAME, [
-  Ng1Components.name
+  Ng1Components.name,
+  GithubReposModule.name
 ]);
 
 Ng1AppModule.directive('app', app)
