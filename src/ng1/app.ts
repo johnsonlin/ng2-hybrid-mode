@@ -25,10 +25,19 @@ class AppCtrl {
 export const MODULE_NAME = 'app';
 
 export const Ng1AppModule = angular.module(MODULE_NAME, [
+  'ngRoute',
   Ng1Components.name,
   GithubReposModule.name,
   WikiSearchModule.name
 ]);
 
-Ng1AppModule.directive('app', app)
+Ng1AppModule
+  .directive('app', app)
+  .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+    $locationProvider.html5Mode(true);
+    $routeProvider
+      .when('/ng1/home', {
+        templateUrl: './app.html'
+      })
+  }])
   .controller('AppCtrl', AppCtrl);
