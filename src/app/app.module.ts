@@ -11,6 +11,7 @@ import { GithubReposComponent } from './components/github-repos/github-repos.com
 import { WikiSearchComponent } from './components/wiki-search/wiki-search.component';
 import { Ng2HomeComponent } from './components/ng2-home/ng2-home.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { GithubRepoDetailsComponent } from './components/github-repo-details/github-repo-details.component';
 
 export class HybridUrlHandlingStrategy implements UrlHandlingStrategy {
   shouldProcessUrl(url: UrlTree) { return url.toString().startsWith('/ng2'); }
@@ -24,7 +25,8 @@ export class HybridUrlHandlingStrategy implements UrlHandlingStrategy {
     GithubReposComponent,
     WikiSearchComponent,
     Ng2HomeComponent,
-    MenuComponent
+    MenuComponent,
+    GithubRepoDetailsComponent
   ],
   imports: [
     BrowserModule,

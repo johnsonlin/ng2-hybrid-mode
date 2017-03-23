@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { GithubReposService } from './github-repos.service';
 
@@ -12,11 +12,12 @@ import { GithubReposService } from './github-repos.service';
 })
 export class GithubReposComponent implements OnInit {
   repoNames: string[];
+  @Input() user: string = 'johnsonlin';
 
   constructor(private service: GithubReposService) { }
 
   ngOnInit() {
-    this.service.getRepoNames().then(repoNames => {
+    this.service.getRepoNames(this.user).then(repoNames => {
       this.repoNames = repoNames;
     });
   }

@@ -7,12 +7,12 @@ export class GithubReposService {
 
   constructor(private http: Http) { }
 
-  getRepos(orgName:string='angular') {
-    return this.http.get(`https://api.github.com/users/${orgName}/repos`).toPromise();
+  getRepos(userName:string='angular') {
+    return this.http.get(`https://api.github.com/users/${userName}/repos`).toPromise();
   }
 
-  getRepoNames() {
-    return this.getRepos()
+  getRepoNames(userName:string) {
+    return this.getRepos(userName)
       .then(response => response.json().map((repo: any) => repo.name));
   }
 

@@ -19,18 +19,9 @@ EchoComponent
       templateUrl: './echo.template.html',
       scope: {},
       controller: ['EchoService', function(EchoService) {
-        this.startEcho = () => {
-          this.echo(this.word);
-          this.echo3x(this.word);
-        };
+        this.echo = (word) => word;
 
-        this.echo = (word) => {
-          this.echoResult = word;
-        };
-
-        this.echo3x = (word) => {
-          this.echo3xResult = EchoService.echo3x(word);
-        }
+        this.echo3x = (word) => word ? EchoService.echo3x(word) : '';
       }],
       controllerAs: 'vm'
     }
