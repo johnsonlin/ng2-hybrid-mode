@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { GithubReposService } from './github-repos.service';
 
@@ -12,14 +13,33 @@ import { GithubReposService } from './github-repos.service';
 })
 export class GithubReposComponent implements OnInit {
   repoNames: string[];
-  @Input() user: string = 'johnsonlin';
+  @Input() user: string;
+  @Output() repos = new EventEmitter<any[]>();
 
   constructor(private service: GithubReposService) { }
 
   ngOnInit() {
-    this.service.getRepoNames(this.user).then(repoNames => {
-      this.repoNames = repoNames;
-    });
+    this.searchReposByUser(this.user);
+  }
+
+  ngOnChanges() {
+    this.searchReposByUser(this.user);
+  }
+
+  private searchReposByUser(user) {
+    new Promise((resolve, reject) => {
+      if (!!user) {
+        this.service.getRepoNames(this.user).then(repoNames => {
+          resolve(repoNames);
+        });
+      } else {
+        resolve([]);
+      }
+    })
+      .then((repoNames:string[]) => {
+        this.repoNames = repoNames;
+        this.repos.emit(repoNames);
+      });
   }
 
 }

@@ -1,0 +1,19 @@
+<h3>Data Sharing between NG1 and NG2</h3>
+
+<github-users user-clicked="vm.updateUser(user)"></github-users>
+
+<div class="github">
+  <div ng-show="vm.user">
+    <h3>user {{vm.user}} is passed into the below Angular 2 component</h3>
+    <github-repos [user]="vm.user" (repos)="vm.setRepos($event)"></github-repos>
+  </div>
+
+  <div ng-show="vm.user">
+    <h3>{{vm.user}}'s repos emitted by Angular 2 component</h3>
+    <ul>
+      <li ng-repeat="repoName in vm.repos">
+        <a ng-href="{{'/ng2/repo/' + vm.user + '/' + repoName}}">{{repoName}}</a>
+      </li>
+    </ul>
+  </div>
+</div>

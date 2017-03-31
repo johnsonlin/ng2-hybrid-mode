@@ -11,10 +11,17 @@ GithubUsersComponent.directive('githubUsers', [function() {
       restrict: 'E',
       templateUrl: './github-users.template.html',
       scope: {},
+      bindToController: {
+        userClicked: '&'
+      },
       controller: ['GithubUsersService', function(GithubUsersService) {
         GithubUsersService.getUsers().then((users) => {
           this.users = users.map(user => user.login);
         });
+
+        this.onClick = (userName) => {
+          this.userClicked({user: userName});
+        }
       }],
       controllerAs: 'vm'
     }

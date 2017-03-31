@@ -9,7 +9,7 @@ export const EchoComponent = angular.module('app.component.echo', [
 EchoComponent
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
-      .when('/ng1/echo', {
+      .when('/echo', {
         template: '<echo></echo>'
       })
   }])

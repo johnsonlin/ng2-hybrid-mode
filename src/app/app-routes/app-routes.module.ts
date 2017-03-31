@@ -10,7 +10,7 @@ const appRoutes: Routes = [
     component: Ng2HomeComponent
   },
   {
-    path: 'ng2/user/:user/:repo',
+    path: 'ng2/repo/:user/:repo',
     component: GithubRepoDetailsComponent
   }
 ];

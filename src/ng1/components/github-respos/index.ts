@@ -9,7 +9,9 @@ export const GithubReposModule = angular.module('GithubReposModule', []);
 
 GithubReposModule
   .directive('githubRepos', downgradeComponent({
-    component: GithubReposComponent
+    component: GithubReposComponent,
+    inputs: ['user'],
+    outputs: ['repos']
   }))
   .service('GithubReposService', downgradeInjectable(GithubReposService));
 

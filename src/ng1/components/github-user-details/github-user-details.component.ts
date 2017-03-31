@@ -9,7 +9,7 @@ export const GithubUserDetailsComponent = angular.module('app.component.githubUs
 GithubUserDetailsComponent
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
-      .when('/ng1/user/:user', {
+      .when('/user/:user', {
         template: '<github-user-details user="{{vm.userName}}"></github-user-details>',
         controller: ['$routeParams', function($routeParams) {
           this.userName = $routeParams.user;

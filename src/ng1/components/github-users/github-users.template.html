@@ -1,6 +1,7 @@
 <h3>Github users</h3>
 <ul>
   <li ng-repeat="userName in vm.users">
-    <a ng-href="/ng1/user/{{userName}}">{{userName}}</a>
+    <a ng-href="/user/{{userName}}">{{userName}}</a>
+    <a ng-click="vm.onClick(userName)" href="#">Pass</a>
   </li>
 </ul>

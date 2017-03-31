@@ -1,6 +1,8 @@
 <h3>Github repos</h3>
 <ul>
+  <li *ngIf="!repoNames">Search...</li>
+  <li *ngIf="repoNames?.length == 0">No repos found</li>
   <li *ngFor="let repoName of repoNames">
-    <a [routerLink]="'/ng2/user/' + user + '/' + repoName">{{repoName}}</a>
+    <a [routerLink]="'/ng2/repo/' + user + '/' + repoName">{{repoName}}</a>
   </li>
 </ul>
